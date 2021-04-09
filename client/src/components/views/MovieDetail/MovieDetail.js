@@ -17,20 +17,17 @@ function MovieDetail(props) {
   };
 
   useEffect(() => {
-    console.log(movieId);
     const endpointCrew = `${API_URL}movie/${movieId}/credits?api_key=${API_KEY}`;
     const endpointInfo = `${API_URL}movie/${movieId}?api_key=${API_KEY}`;
     fetch(endpointInfo)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setMovie(response);
       });
 
     fetch(endpointCrew)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
         setCast(response.cast);
       });
   }, []);

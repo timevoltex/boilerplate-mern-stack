@@ -1,6 +1,5 @@
 import { Row } from "antd";
 import React, { Fragment, useEffect, useState } from "react";
-import { FaCode } from "react-icons/fa";
 import { API_KEY, API_URL, IMAGE_BASE_URL } from "../../Config";
 import GridCards from "../commons/GridCards";
 import MainImage from "./Section/MainImage";
@@ -20,7 +19,6 @@ function LandingPage() {
     fetch(endpoint)
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.results);
         setMovies([...movies, ...response.results]);
         if (response.page === 1) setMainMovie(response.results[0]);
         setPage(response.page);
